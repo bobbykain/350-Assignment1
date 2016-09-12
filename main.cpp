@@ -76,6 +76,7 @@ int main(int argc, char** argv)
 	{
 		cout << "file opened successfully" << endl;
 		string line = "";
+		
 		while (getline(dnatxt, line))
 		{
 			cout << "In while loop" << endl;
@@ -95,6 +96,7 @@ int main(int argc, char** argv)
 		{
 			vsum += ((line.size() - mean) * (line.size() - mean));
 		}
+
 		variance = (vsum / (lines - 1));
 		cout << "variance: " << variance << endl;
 		sdev = sqrt(variance);
@@ -107,6 +109,7 @@ int main(int argc, char** argv)
 
 		totalpairs = (totalchar / 2);
 		string check = "";
+
 		while (getline(dnatxt, line))
 		{
 			for (int i = 0; i < line.size(); ++i)
@@ -214,7 +217,6 @@ int main(int argc, char** argv)
 						t++;
 						gt++;
 					}
-
 				}
 			}
 		}
@@ -282,7 +284,7 @@ int main(int argc, char** argv)
 		cout << "gt percent: " << gtp << endl;
 		cout << "gc percent: " << gcp << endl;
 
-		ofstream output("bobbykain.txt");
+		ofstream output("bobbykain.out");
 		output << "Bobby Kain" << endl;
 		output << "ID: 1946678" << endl;
 		output << "Output file for assignment 1" << endl;
@@ -309,23 +311,64 @@ int main(int argc, char** argv)
 		output << "gc percent: " << gcp << endl;
 		
 		double c = 0;
-		double d = 0;
+		int d = 0;
 		double x = 0;
 		double y = 0;
+		double pair = 0;
+
 		for (int i = 0; i < 1000; ++i)
 		{
+			output << "\n";
 			x = ((double) rand() / (RAND_MAX));
 			y = ((double) rand() / (RAND_MAX));
 			c = (sqrt(-2 * log(x)) * (cos(2 * M_PI * y)));
 			d = (sdev * c) + mean;
-			cout << d << endl;
+
+			if (d % 2 != 0)
+			{
+				d++;
+			}
+
+			for (int i = 0; i < (d / 2); ++i)
+			{
+				pair = ((double) rand() / (RAND_MAX));
+				if (pair <= .07)
+					output << "aa";
+				else if (pair > .07 && pair <= .19)
+					output << "at";
+				else if (pair > .19 && pair <= .29)
+					output << "ac";
+				else if (pair > .29 && pair <= .34)
+					output << "ag";
+				else if (pair > .34 && pair <= .49)
+					output << "cc";
+				else if (pair > .49 && pair <= .51)
+					output << "ct";
+				else if (pair > .51 && pair <= .53)
+					output << "ca";
+				else if (pair > .53 && pair <= .58)
+					output << "cg";
+				else if (pair > .58 && pair <= .63)
+					output << "ta";
+				else if (pair > .63 && pair <= .65)
+					output << "tt";
+				else if (pair > .65 && pair <= .72)
+					output << "tc";
+				else if (pair > .72 && pair <= .77)
+					output << "tg";
+				else if (pair > .77 && pair <= .79)
+					output << "gg";
+				else if (pair > .79 && pair <= .84)
+					output << "ga";
+				else if (pair > .84 && pair <= .89)
+					output << "gt";
+				else
+					output << "gc";
+			}
 		}
-
-
-
 		dnatxt.close();
-
 	}
+
 	else
 	{
 		cout << "file error" << endl;
