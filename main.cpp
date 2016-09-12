@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <cmath>
+#include <math.h>
 
 using namespace std;
 
@@ -281,14 +282,54 @@ int main(int argc, char** argv)
 		cout << "gt percent: " << gtp << endl;
 		cout << "gc percent: " << gcp << endl;
 
+		ofstream output("bobbykain.txt");
+		output << "Bobby Kain" << endl;
+		output << "ID: 1946678" << endl;
+		output << "Output file for assignment 1" << endl;
+
+		output << "a percent: " << ap << endl;
+		output << "c percent:  " << cp << endl;
+		output << "g percent: " << gp << endl;
+		output << "t percent: " << tp << endl;
+		output << "aa percent: " << aap << endl;
+		output << "at percent: " << atp << endl;
+		output << "ac percent: " << acp << endl;
+		output << "ag percent: " << agp << endl;
+		output << "cc percent: " << ccp << endl;
+		output << "ct percent: " << ctp << endl;
+		output << "ca percent: " << cap << endl;
+		output << "cg percent: " << cgp << endl;
+		output << "ta percent: " << tap << endl;
+		output << "tt percent: " << ttp << endl;
+		output << "tc percent: " << tcp << endl;
+		output << "tg percent: " << tgp << endl;
+		output << "gg percent: " << ggp << endl;
+		output << "ga percent: " << gap << endl;
+		output << "gt percent: " << gtp << endl;
+		output << "gc percent: " << gcp << endl;
+		
+		double c = 0;
+		double d = 0;
+		double x = 0;
+		double y = 0;
+		for (int i = 0; i < 1000; ++i)
+		{
+			x = ((double) rand() / (RAND_MAX));
+			y = ((double) rand() / (RAND_MAX));
+			c = (sqrt(-2 * log(x)) * (cos(2 * M_PI * y)));
+			d = (sdev * c) + mean;
+			cout << d << endl;
+		}
+
+
+
+		dnatxt.close();
+
 	}
 	else
 	{
 		cout << "file error" << endl;
 	}
 
-	//dnatxt << "helloooo";
-
-	dnatxt.close();
 	return 0;
 }
